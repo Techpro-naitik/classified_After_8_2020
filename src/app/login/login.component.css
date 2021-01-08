@@ -1,0 +1,24 @@
+.resetcolor {
+    position: relative;
+    left: 34%;
+}
+
+.reset-password-btn {
+    cursor: pointer !important;
+}
+
+.color_Text {
+    right: 17px;
+    color: red;
+    position: relative;
+    bottom: 0px;
+}
+
+.secondOptionSignin {
+    padding: 5px 6px !important;
+    font-size: 12px !important;
+}
+
+.btn-icon .btn-inner--icon img {
+    width: 17px;
+}

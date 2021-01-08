@@ -1,0 +1,126 @@
+<main>
+    <section class="section section-shaped section-lg">
+      <div class="shape shape-style-1 bg-gradient-default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+  
+      <div class="container pt-lg-md" style="padding:0 !important">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="card bg-secondary shadow border-0">
+              <!-- <div class="card-header bg-white pb-5">
+                <div class="text-muted text-center mb-3">
+                  <small>Sign up with</small>
+                </div>
+           
+              </div> -->
+              <div class="card-body px-lg-5 py-lg-5">
+                <div class="text-center text-muted mb-4">
+                  <small>Or Sign Up With Credentials</small>
+                </div>
+                <form role="form" [formGroup]="registerForm" (ngSubmit)="register()">
+                  <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                      <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"></span>
+                          </div>
+                          <input class="form-control" formControlName="fullName" placeholder='{{"Full Name" | translate }}' (focus)="focus1=true" (blur)="focus1=false">
+                      </div>
+                  </div>
+                  <span *ngIf="registerForm.controls['fullName'].invalid && (registerForm.controls['fullName'].dirty || registerForm.controls['fullName'].touched)">
+                      <span *ngIf="registerForm.controls['fullName'].errors.required" class="color_Text">
+                          {{"Please Enter Full Name" | translate}}
+                      </span>
+                  </span>
+                  <div class="form-group" [ngClass]="{'focused':focus===true}">
+                      <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"></span>
+                          </div>
+                          <input class="form-control" formControlName="userName" placeholder='{{ "Username" | translate }} ' type="text" (focus)="focus=true" (blur)="focus=false">
+                      </div>
+                  </div>
+                  <div class="color_Text">
+                      <ng-container *ngFor="let validation of validation_messages.userName">
+                          <div class="error-message" *ngIf="registerForm.get('userName').hasError(validation.type) && (registerForm.get('userName').dirty || registerForm.get('userName').touched)">
+                              {{ validation.message }}
+                          </div>
+                      </ng-container>
+                  </div>
+                  <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                      <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"></span>
+                          </div>
+                          <input class="form-control" formControlName="email" placeholder='{{"Email" | translate}}' type="email" (focus)="focus1=true" (blur)="focus1=false">
+                      </div>
+                  </div>
+                  <div class="color_Text">
+                      <ng-container *ngFor="let validation of validation_messages.email">
+                          <div class="error-message" *ngIf="registerForm.get('email').hasError(validation.type) && (registerForm.get('email').dirty || registerForm.get('email').touched)">
+                              {{ validation.message }}
+                          </div>
+                      </ng-container>
+                  </div>
+                  <ngx-ui-loader></ngx-ui-loader>
+                  <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                      <div class="input-group input-group-alternative">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"></span>
+                          </div>
+                          <input class="form-control" [type]="fieldTextType ? 'text' : 'password'" formControlName="password" placeholder='{{"Password" | translate }}' type="password" (focus)="focus2=true" (blur)="focus2=false">
+                          <div class="input-group-append">
+                              <span class="input-group-text">
+                                  <i class="fa" [ngClass]="{ 'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType}"(click)="toggleFieldTextType()"></i>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+
+                  <span class="sp color_Text" *ngIf="registerForm.controls.password.hasError('pattern')">
+                          Password Must Be 6 Digit, 1 Special case ,Upper case and Lower case and 1 Numeric
+                  </span>
+                  <span class="sp color_Text" *ngIf="registerForm.controls.password.hasError('required') && registerForm.controls.password.touched" style="color: red">Password is required!</span>
+                  <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                      <div class="input-group input-group-alternative">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"></span>
+                          </div>
+                          <input type="password" [type]="fieldTextType ? 'text' : 'password'" placeholder="Confirm Password" formControlName="confirmPassword" class="form-control">
+                          <div class="input-group-append">
+                              <span class="input-group-text">
+                                  <i class="fa" [ngClass]="{'fa-eye-slash': !fieldTextType,'fa-eye': fieldTextType}"(click)="toggleFieldTextType()"></i>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+                  <span class="sp color_Text" *ngIf="registerForm.controls.confirmPassword.hasError('mustMatch') ">Confirm Password do not match</span>
+                  <span class="sp color_Text" *ngIf="registerForm.controls.confirmPassword.hasError('required') && registerForm.controls.confirmPassword.touched">Confirm Password is required!</span>
+
+                  <div class="text-center">
+                      <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary mt-4">{{"Sign up"| translate}}</button>
+                  </div>
+              </form>
+                <div  style="text-align: center;width:100%;margin-top:20px;">
+                  <a [routerLink]="['/login']" class="tcolor" style="text-align: center;width:100%;display: block;">
+                    <!-- <small>Already a member ? login</small> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+             
+      </div>
+      
+    </section>
+  </main>
+  

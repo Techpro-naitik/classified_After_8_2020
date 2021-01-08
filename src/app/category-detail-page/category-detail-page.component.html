@@ -1,0 +1,267 @@
+<main class="productDetailsMain">
+    <section class="section section-shaped section-lg">
+        <app-navbar></app-navbar>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                    <div class="imageSection">
+                        <img src="https://classifiedwebapi.azurewebsites.net/{{getProductById_image}}"/>
+                    </div>
+                    <button  (click)="OpenReportBox()" style="position: relative;float: right;top: 3%;">Report</button>
+
+                    <div [hidden]="openBox">
+                        <!-- <form [formGroup]="ReportForm" (ngSubmit)="submit()"> -->
+           
+                            <div class="form-group">
+                                <!-- <label for="gender">Gender:</label> -->
+                                <div>
+                                  <input id="Incorrect category" type="radio" value="Incorrect category" name="ReportRemark" (change)="changeGender($event)">
+                                  <label for="Incorrect category">Incorrect category</label>
+                               </div>
+                       
+                               <div>
+                                  <input id="inappropriate ad information or image" type="radio" value="inappropriate ad information or image" name="ReportRemark"  (change)="changeGender($event)">
+                                  <label for="inappropriate ad information or image">inappropriate ad information or image</label>
+                               </div>
+                               <div>
+                                <input id="Offensive or adult content" type="radio" value="Offensive or adult content" name="ReportRemark" (change)="changeGender($event)">
+                                <label for="male">Offensive or adult content</label>
+                             </div>
+                     
+                             <div>
+                                <input id="Other reasons" type="radio" value="Other reasons" name="ReportRemark" (change)="changeGender($event)">
+                                <label for="Other reasons">Other reasons</label>
+                             </div>
+                                  
+                            
+                            </div>
+                            
+                            <button class="btn btn-primary" (click)="Cancel()">Cancel</button>
+                        <!-- </form> -->
+                    </div>
+
+                    <!-- <div class="col-md-4">
+                        <span class="btn btn-block btn-primary mb-3" (click)="open_Modal(classic,'' , '')">
+                            Report inappropriate
+                        </span>
+                        <ng-template #classic let-c="close" let-d="dismiss">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h6 class="modal-title" id="modal-title-default">Type your modal title</h6>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" (click)="saveValue(hi)" (click)="modal.close('Save click')">Save changes</button>
+                              <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal" (click)="c('Close click')">Close</button>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </div> -->
+                      <div class="tabSection">
+                        <ngb-tabset [justify]="'center'" class="custom-tab-content flex-column flex-md-row xstabs" type="pills">
+                            <ngb-tab title="Description">
+                                <ng-template ngbTabContent>
+                                    Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
+                                    <!-- {{getProductById_ProductDescription}} -->
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab title="Details">
+                                <ng-template ngbTabContent>
+                                    Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab title="Comments">
+                                <ng-template ngbTabContent>
+                                    <form action="" [formGroup]="AddComment" (ngSubmit)="PostComment()" style="overflow:auto;">
+                                        <div class="form-group">
+                                            <textarea style="background:#f1f1f1" placeholder="Type your messags" formControlName="Comment" name="" id="" cols="30" rows="3" class="form-control"></textarea>
+                                        </div>
+                                        You have 120 character left.
+
+                                        <button _ngcontent-kel-c115="" type="submit" style="font-size: 13px;text-transform: capitalize;" class="float-right p-2 btn btn-1 btn-primary">Post Comment</button>
+                                    </form>
+
+                                    <div *ngFor="let item of getProductCommentResponse" class="postComment">
+                                        <ngx-avatar [style]="customStyle" size="30" [name]="firstLatter"></ngx-avatar>
+                                        <div class="comment-section">
+                                            {{item.comment}}
+                                            <div *ngIf = "cmtID === item.productCommentID"  style="    position: relative;
+                                            top: 5px;">
+                                                <textarea name="" id="" cols="40" rows="1" [(ngModel)]="editvalue" ></textarea>
+                                                <button style="position: absolute;" (click)=
+                                                "EditData_call(editvalue,item.productCommentID)"  >edit comment</button>
+                                            </div>
+                                        </div>
+                                    
+                                        <span (click)="DeleteProductComment(item.productCommentID)"> 
+                                                <i class="fa fa-trash"></i>
+                                        </span>
+                                        <span style="position: absolute;
+                                        right: 20px;
+                                        top: 0px;
+                                        color: #df3535;
+                                        font-size: 18px;
+                                        cursor: pointer;" (click)="EditComment(item.productCommentID)"> 
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+
+                                    </span>
+                                   
+                                    </div>
+
+
+                                   
+                                </ng-template>
+
+                            </ngb-tab>
+                        </ngb-tabset>
+                    </div>
+                </div>
+
+              
+
+
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="rightSideContainer">
+                        <div class="row">
+                            <div class="product-details col-xs-9 col-sm-9 col-md-9 col-lg-9 no-hor-padding">
+                                <div class="productName">{{getProductBy_ProductTitle}}</div>
+                                <div class="productPrice">{{getProductBy_Price}} $</div>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-hor-padding"  >
+                                <div class="favourites"  (click)="AddFav()" *ngIf="redHeart == false">  
+                                    <a><i class="fa fa-heart" ></i></a>
+                                </div>
+                                <div class="favourites"  *ngIf="redHeart == true"> 
+                                    <a><i class="fa fa-heart" (click)="deleteApiCall()" style="color: red;"></i></a>
+                                </div>
+                                <div class="likeCounters">
+                                   {{GetCallFav}} <span>likes</span>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-hor-padding timeTravel">
+                                <div class="used-status">Heavily used</div>
+                                <div class="days-reviews-counter">{{getProductBy_AddedOn | date: 'MM'}} months <span>|</span> <span>3 views</span></div>
+                            </div>
+                          
+           
+                            <div class="mt-2 social-buttons-link col-xs-12 col-sm-12 col-md-12 col-lg-12 no-hor-padding">
+                            
+
+                                  
+                            <share-buttons  [theme]="'circles-dark'"
+                            [include]="['facebook','twitter']"
+                            [show]="9"
+                            [size]="1"
+                            [url]="'https://www.eduforbetterment.com/generate-qr-code-in-angular/'"
+                            [image] ="'https://www.eduforbetterment.com/wp-content/uploads/2020/08/qrcode.jpg'"
+                            [autoSetMeta]="false"
+                        ></share-buttons>
+                        <br><br>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-hor-padding">
+  
+                                {{location_Location}}
+
+                                <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+
+
+                                    <ng-container *ngFor="let m of markers; let i = index">
+                                
+                                        <agm-marker (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [iconUrl]="m.icon" *ngIf="m.isShown">
+                                
+                                            <agm-info-window>
+                                                <div>{{m.content}}</div>
+                                            </agm-info-window>
+                                
+                                        </agm-marker>
+                                
+                                    </ng-container>
+                               
+                                    <agm-circle [latitude]="radiusLat" [longitude]="radiusLong" [radius]="radius" [fillColor]="'red'"
+                                        [circleDraggable]="true" [editable]="false" (dragEnd)="radiusDragEnd($event)"
+                                        (radiusChange)="event('radiusChange',$event)">
+                                    </agm-circle>
+                                    <agm-marker 
+                                    [latitude]="latitude" 
+                                    [longitude]="longitude"></agm-marker>
+                                </agm-map>
+                            </div>
+                                       
+                          
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-hor-padding">
+                                <button type="button" class="chatWithSeller someButtons">Chat with seller</button>
+                                <button type="button" class="makeAnOffer someButtons" (click)="open()">Make an offer</button>
+                                <!-- <button type="button" class="exchangeToBuy someButtons" (click)="ExchangeOpen()">Exchanger to buy</button> -->
+                            </div>
+                        </div>
+                        <div class="aboutSeller">
+                            <div class="about-the-seller-heading col-xs-12 col-sm-12 col-md-12 col-lg-12 no-hor-padding">
+                                About the seller
+                            </div>
+                            <div class="row no-hor-padding" style="margin-top:15px;">
+                                <div class="col-xs-5 col-sm-2 col-md-4 col-lg-4 no-hor-padding" *ngIf ="UserProfilePic!=null">
+                                    <img src="https://classifiedwebapi.azurewebsites.net/{{UserProfilePic}}" alt="" style="width:75px;height:75px;">
+                                </div>
+                                <div class="col-xs-5 col-sm-2 col-md-4 col-lg-4 no-hor-padding" *ngIf ="UserProfilePic == null">
+                                    <img src="https://classifiedwebapi.azurewebsites.net/ProductImages/84728edf-c4e7-4715-b720-94a04d96e509Hydrangeas.jpg" alt="" style="width:75px;height:75px;">
+                                </div>
+                                <div class="col-xs-7 col-sm-10 col-md-8 col-lg-8 no-hor-padding" style="padding-right:14px;">
+                                    <div class="sellerName" >
+                                      {{getProduct_UserName}}
+                                    </div>
+                                    <div class="sellerVerifications">
+                                        <div _ngcontent-xlu-c169="" class="text-align-center socialmediaverification">
+                                            <div _ngcontent-xlu-c169="" data-toggle="tooltip" title="Facebook account is not verified!" class="fb-verification"></div>
+                                            <div _ngcontent-xlu-c169="" id="verified" data-toggle="tooltip" title="Email Verified!" class="mobile-verification"></div>
+                                            <div _ngcontent-xlu-c169="" id="verified" data-toggle="tooltip" title="Email Verified!" class="mail-verification"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="product-counter-container col-xs-4 col-sm-4 col-md-4 col-lg-4   no-hor-padding" (click)="aboutSellerPage()">
+                                    <a >
+                                        <div class="btn-product-counter">
+                                            <div class="counter">{{TotalItem}}</div>
+                                            <div class="counter-label">Item(s)</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product-counter-container col-xs-4 col-sm-4 col-md-4 col-lg-4 no-hor-padding"  (click)="aboutSellerPage()">
+                                    <a href="https://joysalescript.com/user/following?id=My03MTA">
+                                       <div class="btn-product-counter">
+                                       
+                                            <div class="counter follower-count"> {{getProductBy_FollowersCount}}</div>
+                                            <div class="counter-label">Follower(s)</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product-counter-container col-xs-4 col-sm-4 col-md-4 col-lg-4  no-hor-padding"  (click)="aboutSellerPage()">
+                                    <a href="https://joysalescript.com/user/follower?id=My0yNjQ">
+                                       
+                                        <div class="btn-product-counter">
+                                            <div class="counter following-count" > {{getProductBy_FollowingCount}}</div>
+                                            <!-- <div class="counter following-count"> 0</div> -->
+
+                                            <div class="counter-label">Following(s)</div>
+                                        </div>
+                                        
+                                    </a>
+                                </div>
+                                <button type="submit" class="someButtons" [hidden]="f1" (click)="getApiCallFollow()">Follow</button>
+                                <button type="submit" class="someButtons" style="background-color: red;" [hidden]="Uf1" (click)="getApiCallUnFollow()">Following</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

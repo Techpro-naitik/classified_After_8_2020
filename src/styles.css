@@ -1,0 +1,273 @@
+@import '~ngx-toastr/toastr';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+/* @import '~ngx-sharebuttons/themes/material/material-dark-theme'; */
+
+
+/* @import '~ngx-sharebuttons/themes/modern/modern-light-theme'; */
+
+
+/* @import '~ngx-sharebuttons/themes/circles/circles-dark-theme'; */
+
+@media (min-width: 768px) {
+    .section-hero {
+        min-height: 250px !important;
+    }
+}
+
+.custom-tab-content .tab-content {
+    box-shadow: none !important;
+    border: none !important
+}
+
+.tabsections123 .nav-link {
+    padding: 0 !important;
+}
+
+.tabsections123 .nav-link div {
+    padding: 0.75rem 1rem !important;
+}
+
+.ngcompletedelete .autocomplete-container {
+    height: 42px !important;
+    box-shadow: none !important;
+}
+
+.tab-content {
+    padding-left: 9px !important;
+    padding-right: 9px !important;
+}
+
+.section-lg {
+    padding-top: 65px !important;
+    padding-bottom: 6rem;
+}
+
+.tab-footer ul {
+    margin-bottom: 0px;
+    width: fit-content;
+    margin: auto;
+}
+
+.tab-footer ul .page-item.disabled .page-link,
+.page-item.first-item .page-link,
+.page-item.previous-item .page-link,
+.tab-footer ul .page-item.next-item .page-link,
+.tab-footer ul .page-item.last-item .page-link {
+    color: #8898aa;
+    pointer-events: none;
+    cursor: auto;
+    background-color: transparent;
+    border-color: transparent;
+    width: fit-content;
+}
+
+.xstabs ul li a {
+    font-size: 13px !important;
+}
+
+.autocomplete-container .input-container input {
+    font-size: 14px;
+    box-sizing: border-box;
+    border: none;
+    box-shadow: none;
+    outline: 0;
+    background-color: #fff;
+    color: rgba(0, 0, 0, .87);
+    width: 100%;
+    padding: 0 40px;
+    line-height: 40px;
+    height: 40px;
+}
+
+.onlyforsearch input {
+    border-radius: 5px 0 0 5px !important;
+}
+
+.nav-link-inner--text:focus {
+    border: none;
+    outline: none;
+}
+
+.bannerfor .tab-content {
+    padding: 0 !important;
+}
+
+.bannerfor .tab-content .row {
+    padding: 0 10px !important;
+}
+
+.bannerfor .tab-content .row .row {
+    padding: 0 !important;
+}
+
+.bannerfor ul {
+    padding: 5px 0 !important;
+}
+
+.bannerfor ul li {
+    padding-right: 5px !important;
+}
+
+.bannerfor ul li a {
+    font-size: 13px !important;
+    text-transform: capitalize;
+    font-weight: 600 !important;
+}
+
+.section-profile-cover {
+    min-height: 630px !important;
+}
+
+.tab-content .col-xl-2.col-md-12 {
+    box-shadow: 3px 1px 4px #d8d8d8 !important;
+}
+
+.banner-div .carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.banner-div .carousel-inner .carousel-item {
+    height: 100%;
+}
+
+.banner-div .carousel-control-prev,
+.banner-div .carousel-control-next {
+    display: none;
+}
+
+.banner-div .carousel-indicators li {
+    position: relative;
+    -webkit-box-flex: 0;
+    flex: 0 1 auto;
+    width: 8px;
+    height: 8px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-item.active {
+    -webkit-animation: fadein 1.0s;
+    -moz-animation: fadein 1.0s;
+    -ms-animation: fadein 1.0s;
+    -o-animation: fadein 1.0s;
+    animation: fadein 1.0s;
+}
+
+.banner-div .carousel-indicators {
+    bottom: 0px;
+}
+
+.productDetailsMain .tabSection ul li {
+    padding-right: 0px !important;
+}
+
+.productDetailsMain .tabSection ul {
+    text-align: left;
+    width: fit-content;
+    padding-bottom: 0px;
+}
+
+.productDetailsMain .tabSection ul li {
+    flex: 0;
+}
+
+.productDetailsMain .tabSection ul li .nav-link {
+    padding: 8px 12px;
+    color: #696969;
+    font-weight: 500;
+    font-size: 0.875rem;
+    box-shadow: unset;
+    background-color: #f6f5f7;
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+    position: relative;
+    top: 1px;
+}
+
+.productDetailsMain .nav-pills .nav-link.active,
+.productDetailsMain .nav-pills .show>.nav-link {
+    color: #000;
+    background-color: #ffffff;
+    border: 1px solid #8e8e8e;
+    border-bottom: 1px solid #ffffff;
+    border-radius: 3px 3px 0 0;
+    z-index: 99 !important;
+    font-weight: 600;
+}
+
+.productDetailsMain .tab-content {
+    border: 1px solid #8e8e8e !important;
+    padding-top: 10px !important;
+}
+
+.productDetailsMain .tab-content .tab-pane {
+    font-size: 13px;
+}
+
+.addpostmodalheader {
+    padding: 15px !important;
+    background: #222222;
+}
+
+.addpostmodalheader h5 {
+    text-align: center !important;
+    margin: auto;
+    width: 100%;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.addpostmodalheader .close span {
+    color: #ffffff !important;
+}
+
+.modal-dialog {
+    max-width: 800px !important;
+    margin: 1.75rem auto;
+}
+
+.addpostmodalbody {
+    padding: 10px !important;
+}
+
+.addpostmodalbody h5 {
+    font-weight: 800;
+    font-size: 19px;
+    color: #222222;
+}
+
+.addpostmodalbody p {
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 600;
+    color: #8e8e8e;
+}
+
+share-buttons share-button button {
+    outline: none !important;
+    border: none !important;
+    margin-right: 5px !important;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+}
+
+share-buttons share-button:nth-child(2) button {
+    background: #00acee !important;
+    color: #ffffff;
+}
+
+share-buttons share-button:nth-child(1) button {
+    background: #4267B2;
+    color: #ffffff;
+}

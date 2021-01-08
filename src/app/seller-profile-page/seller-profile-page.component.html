@@ -1,0 +1,554 @@
+<main class="profile-page" style="overflow: unset !important">
+    <section class="section-profile-cover section-shaped my-0">
+      <!-- Circles background -->
+      <div class="shape shape-style-1 shape-primary alpha-4">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+  
+      <div class="container-fluid pt-lg-md fohei main-container">
+        <ngx-ui-loader></ngx-ui-loader>
+  
+        <app-modal-component></app-modal-component>
+        <!-- <div class="search-radius"> -->
+  
+        <!-- </div> -->
+        <div class="row justify-content-center">
+          <div
+            class="search-radius"
+            style="
+              position: absolute;
+              z-index: 99999;
+              width: 375px;
+              top: 60%;
+              margin-top: 2px;
+              /* border-radius: 0 3px 3px 0 !important; */
+              left: 470px;
+              padding-left: 0 !important;
+            "
+          >
+            <!-- <input
+              style="padding-left: 0;
+              left: 0;
+              top: 1px;
+              position: relative;
+              border-left: 0px !important;
+              border-radius: 0 3px 3px 0 !important;"
+              [ngStyle]="{
+                display: keyProfile === 'Edit Profile' ? block : 'none'
+              }"
+              [(ngModel)]="newLocation"
+              name=""
+              type="text"
+              class="form-control"
+              (keydown.enter)="$event.preventDefault()"
+              placeholder="Search Nearest Location"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="off"
+              type="text"
+              #search
+            /> -->
+          </div>
+          
+          <div class="col-lg-12" style="padding: 0">
+            <div class="card bg-secondary shadow border-0">
+              <div class="card-body px-lg-5 py-lg-5 card-body-profile">
+                <!-- <app-ng-dynamic-breadcrumb></app-ng-dynamic-breadcrumb> -->
+  
+                <div class="container">
+                  <div class="row">
+                    <div
+                      class="col-xs-12 col-sm-3 col-md-3 col-lg-3 leftmenu-profile"
+                    >
+                      <div class="profile-image" [hidden]="EL">
+                        <div
+                          style="
+                            width: fit-content;
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                          "
+                        >
+                          <!-- ./../assets/img/brand/camera-20.svg -->
+                          <!-- <img
+                            src="./assets/img/brand/camera-20.svg"
+                          
+                          
+                            alt=""
+                          /> -->
+                          <div class="image-upload">
+                            <!-- <label for="file-input">
+                              <img src="./assets/img/brand/camera-20.svg"   style="
+                              position: relative;
+                              width: 30px;
+                              height: 30px;
+                              border-radius: 0;
+                            "/>
+                            </label> -->
+                           
+                        
+                            <input id="file-input" type="file"  accept=".png, .jpg, .jpeg"
+                            #file
+                            #fileInput
+                            (change)="submit($event, file.files)" />
+                          </div>
+                        </div>
+                        <!-- <div>
+                          <ngx-avatar
+                            [style]="customStyle"
+                            size="120"
+                            [name]="firstLatter"
+                            *ngIf="image == null"
+                          ></ngx-avatar>
+                        </div> -->
+                        <img
+                          src="https://classifiedwebapi.azurewebsites.net/{{
+                            UserProfilePic
+                          }}"
+                          class="rounded-circle"
+                          alt=""
+                          *ngIf="UserProfilePic != null"
+                        />
+                        <img
+                        src="https://classifiedwebapi.azurewebsites.net/ProductImages/84728edf-c4e7-4715-b720-94a04d96e509Hydrangeas.jpg"
+                        class="rounded-circle"
+                        alt=""
+                        *ngIf="UserProfilePic == null"
+                      />
+                        <!-- <img src="../assets/img/banner1.png" alt="" > -->
+                      </div>
+  
+                      <!-- <div class="profile-image" [hidden]="FBL"> -->
+                        <!-- <div
+                          style="
+                            width: fit-content;
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                          "
+                        > -->
+                        
+                          <!-- ./../assets/img/brand/camera-20.svg -->
+                          <!-- <div class="image-upload"> -->
+                            <!-- <label for="file-input">
+                              <img src="./assets/img/brand/camera-20.svg"   style="
+                              position: relative;
+                              width: 30px;
+                              height: 30px;
+                              border-radius: 0;
+                            "/> -->
+                            <!-- </label> -->
+                           
+                        
+                            <!-- <input id="file-input" type="file"  accept=".png, .jpg, .jpeg"
+                            #file
+                            #fileInput
+                            (change)="submit($event, file.files)" /> -->
+                          <!-- </div> -->
+  
+                          <!-- <input type="file"
+                          accept=".png, .jpg, .jpeg"
+                          #file
+                          #fileInput
+                          (change)="submit($event, file.files)"
+                          name=""
+                          id=""
+                          [hidden]="show"> -->
+                        <!-- </div> -->
+                        <!-- <div>
+                          <ngx-avatar
+                            [style]="customStyle"
+                            size="120"
+                            [name]="firstLatter"
+                            *ngIf="image == null"
+                          ></ngx-avatar>
+                        </div> -->
+                        <!-- <img
+                          src="{{image}}"
+                          class="rounded-circle"
+                          alt=""
+                          *ngIf="image != undefind"
+                        /> -->
+                        <!-- <img src="../assets/img/banner1.png" alt="" > -->
+                      <!-- </div> -->
+  
+  
+  
+  
+  
+  
+  
+  
+                      
+                      <!-- <div
+                        style="
+                          position: relative;
+                          padding: 10px 20px;
+                          overflow: hidden;
+                        "
+                      > -->
+                        <!-- <input
+                          type="file"
+                          accept=".png, .jpg, .jpeg"
+                          #file
+                          #fileInput
+                          (change)="submit($event, file.files)"
+                          name=""
+                          id=""
+                          [hidden]="show"
+                        /> -->
+                        <!-- <span (click)="submit()" [hidden]="show" >submit</span> -->
+                      <!-- </div> -->
+  
+                      <div class="profile-details">
+                        <div class="name">{{ newLocation }}</div>
+                        <div class="name">{{getProduct_UserName}}</div>
+                        <!-- <div class="name" >{{ getProfileDetail.FullName }}</div> -->
+                        <div class="rating">
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star"></span>
+                          <span class="fa fa-star"></span>
+                          <span class="avrg-rating">(2)</span>
+                        </div>
+  
+                        <div class="text-align-center socialmediaverification">
+                          <div
+                            class="mobile-verification"
+                            data-toggle="tooltip"
+                            (click)="mobileVerified()"
+                            title="Mobile number is not verified!"
+                          ></div>
+                         
+  
+                          <div
+                            class="fb-verification"
+                            data-toggle="tooltip"
+                            title="Facebook account is not verified!"
+                          ></div>
+                          <div
+                            class="mail-verification"
+                            id="verified"
+                            data-toggle="tooltip"
+                            title="Email Verified!"
+                          ></div>
+                        </div>
+                      </div>
+                      <ul>
+                        <li *ngFor="let item of notificationJSON">
+                          <a (click)="passData(item.id)">{{ item.data }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                      <div class="tab-content-profile">
+                        <!-- *ngIf="item.data == 'My Listings'" -->
+                        <div [hidden]="E1" class="myListing">
+                          <div class="header">
+                            <span>Listings</span>
+                          </div>
+                          <div class="recentActivityBody">
+                            <ngb-tabset
+                              [justify]="'center'"
+                              class="custom-tab-content flex-column flex-md-row xstabs"
+                              type="pills"
+                            >
+                              <ngb-tab  >
+                                <ng-template ngbTabTitle>
+                                  <div (click)="Liksbutton()">
+                                    Favourites
+                                  </div>
+                                </ng-template>
+                             <ng-template ngbTabContent *ngIf="GetCallFav.length != 0"> 
+                               <div class="withdata"  >
+                                    <div class="row">
+                                      <div class="col-md-4 col-sm-4 col-xs-12" *ngFor ="let item of GetCallFav">
+                                        <div class="with-item-container">
+                                          <img
+                                            src="https://classifiedwebapi.azurewebsites.net/{{item.productImages[0].imageSource}}"
+                                            alt=""
+                                          />
+                                        </div  >
+                                        <span> {{item.productTitle}}</span>
+                                      </div> 
+                                                               
+                                    </div>
+                                    <!-- <span> {{item.fullName}}</span>  -->
+                                  </div>
+                                  </ng-template>
+                                  <ng-template ngbTabContent  *ngIf="GetCallFav.length == 0">
+                                    Sorry... Yet no product are here..
+                                    </ng-template>
+                              <!-- </ngb-tab> -->
+                              </ngb-tab>
+                              <ngb-tab  >
+                                <ng-template ngbTabTitle>
+                                  <div (click)="FollowerButton()">
+                                    Seling
+                                  </div>
+                                </ng-template>
+                               <!-- <ng-template ngbTabContent> -->
+                                  <!-- <div class="withdata" >
+                                    <div class="row">
+                                      <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="with-item-container">
+                                          <img
+                                            src="./assets/img/blankimagepic.jpg"
+                                            alt=""
+                                          />
+                                        </div>
+                                      </div>  
+                                                               
+                                    </div>
+                                    <span> {{item.fullName}}</span> 
+                                  </div> -->
+                                  <!-- </ng-template> -->
+                                  <ng-template ngbTabContent >
+                                    Sorry... Yet no product are here..
+                                    </ng-template>
+                              </ngb-tab>
+                              <!-- </ngb-tab> -->
+                              <ngb-tab  >
+                                <ng-template ngbTabTitle>
+                                  <div (click)="FollwingButton()">
+                                    Sold
+                                  </div>
+                                </ng-template>
+                               <ng-template ngbTabContent>
+                                   <div class="withdata" *ngIf="mySoldsArray != undefind" >
+                                    <div class="row">
+                                      <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="with-item-container">
+                                          <img
+                                            src="https://classifiedwebapi.azurewebsites.net/ProductImages/84728edf-c4e7-4715-b720-94a04d96e509Hydrangeas.jpg  "
+                                            alt=""
+                                          />
+                                        </div>
+                                      </div>  
+                                                               
+                                    </div>
+                                    <!-- <span> {{item.fullName}}</span>  -->
+                                  </div> 
+                                  </ng-template>
+                                  <ng-template ngbTabContent *ngIf="mySoldsArray === undefind">
+                                    Sorry... Yet no product are here..
+                                    </ng-template>
+                              </ngb-tab>
+                              <!-- </ngb-tab> -->
+                              <ngb-tab  >
+                                <ng-template ngbTabTitle>
+                                  <div (click)="FollwingButton()">
+                                    Expired
+                                  </div>
+                                </ng-template>
+                                <!-- <ng-template ngbTabContent> -->
+                                  <!-- <div class="withdata" >
+                                    <div class="row">
+                                      <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <div class="with-item-container">
+                                          <img
+                                            src="./assets/img/blankimagepic.jpg"
+                                            alt=""
+                                          />
+                                        </div>
+                                      </div>  
+                                                               
+                                    </div>
+                                    <span> {{item.fullName}}</span> 
+                                  </div> -->
+                                  <!-- </ng-template> -->
+                                  <ng-template ngbTabContent >
+                                    Sorry... Yet no product are here..
+                                    </ng-template>
+                              </ngb-tab>
+                            </ngb-tabset>
+                          </div>
+                          </div>
+                        <!-- *ngIf="item.data == 'Edit Profile'" -->
+                     
+                        <div [hidden]="E3" class="recentActivity">
+                          <div class="header">
+                            <span>Recent Activities</span>
+                          </div>
+                          <div class="recentActivityBody">
+                            <ngb-tabset
+                              [justify]="'center'"
+                              class="custom-tab-content flex-column flex-md-row xstabs"
+                              type="pills"
+                            >
+                              <ngb-tab  >
+                                <ng-template ngbTabTitle>
+                                  <div (click)="GetAddFavProduct()">
+                                    Favourites
+                                  </div>
+                                </ng-template>
+                                 <ng-template ngbTabContent *ngIf="GetCallFav.length != 0">
+                                  <div >
+                                   
+                                     <div class="withdata" >
+                                      <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12" *ngFor ="let item of GetCallFav">
+                                          <div class="with-item-container">
+                                            <img
+                                              src="https://classifiedwebapi.azurewebsites.net/{{item.productImages[0].imageSource}}"
+                                              alt=""
+                                            />
+                                          </div>
+                                          <span> {{item.productTitle}}</span>
+                                        </div>                  
+                                      </div>
+                                    
+                                    </div>
+                                       
+                                  </div>
+                                 </ng-template>
+                                 <ng-template ngbTabContent *ngIf="GetCallFav.length === 0">
+                                  Sorry... Yet no product are here..
+                                 </ng-template>
+                              </ngb-tab>
+                              <ngb-tab  >
+                                <ng-template ngbTabTitle>
+                                  <div (click)="FollowerButton()">
+                                    Follower
+                                  </div>
+                                </ng-template>
+                                <ng-template ngbTabContent *ngIf ="Follower_data != null">
+                                  <div class="withdata">
+                                    <div class="row">
+                                      <div class="col-md-4 col-sm-4 col-xs-12" *ngFor = "let item of Follower_data">
+                                        <div class="with-item-container" *ngIf="item.profileUrl != null" >
+                                          <img
+                                            src="https://classifiedwebapi.azurewebsites.net/{{item.profileUrl}}"
+                                            alt=""
+                                          />
+                                        </div>
+                                        
+                                        <div class="with-item-container" *ngIf="item.profileUrl === ''">
+                                          <img
+                                            src="https://classifiedwebapi.azurewebsites.net/ProductImages/84728edf-c4e7-4715-b720-94a04d96e509Hydrangeas.jpg"
+                                            alt=""
+                                          />
+                                        </div>
+                                        <span> {{item.fullName}}</span> 
+                                      </div>  
+                                                               
+                                    </div>
+                                   
+                                  </div>
+                                  </ng-template>
+                                  <ng-template ngbTabContent *ngIf ="Follower_data == null">
+                                    <div >
+                                      Sorry... Yet no product are here..
+  
+                                    </div>
+                                    </ng-template>
+                              </ngb-tab>
+                              <ngb-tab  >
+                                <ng-template ngbTabTitle>
+                                  <div (click)="FollwingButton()">
+                                    Follwing
+                                  </div>
+                                </ng-template>
+                                <ng-template ngbTabContent *ngIf="Following_user !== null">
+                                  <div class="withdata" >
+                                    <div class="row">
+                                      <div class="col-md-4 col-sm-4 col-xs-12" *ngFor = "let item of Following_user">
+                                        <div class="with-item-container"  *ngIf="item.profileUrl != null">
+                                          <img
+                                            src="https://classifiedwebapi.azurewebsites.net/{{item.profileUrl}}"
+                                            alt=""
+                                          />
+                                        </div>
+                                        <div class="with-item-container" *ngIf="item.profileUrl === ''" >
+                                          <img
+                                            src="https://classifiedwebapi.azurewebsites.net/ProductImages/84728edf-c4e7-4715-b720-94a04d96e509Hydrangeas.jpg"
+                                            alt=""
+                                          />
+                                        </div>
+                                        <span> {{item.fullName}}</span> 
+                                      </div>  
+                                                               
+                                    </div>
+                                    <!-- <span> {{item.fullName}}</span>  -->
+                                  </div>
+                                  </ng-template>
+                                  <ng-template ngbTabContent *ngIf="Following_user === null">
+                                    Sorry... Yet no product are here..
+                                    </ng-template>
+                              </ngb-tab>
+                            </ngb-tabset>
+                          </div>
+                        </div>
+                 
+                   
+                        <div [hidden]="E8" class="bannerAdsHistory">
+                            <div class="header">
+                              <span>Rating & Review</span>
+                            </div>
+                            <div class="nodata">
+                              <img src="./assets/img/blankimagepic.jpg" alt="" />
+                              <div class="nodatamsg">
+                                <span>Sorry..</span> No Reviews
+                              </div>
+                              <!-- <button type="buton" class="yourProduct">Your Product</button> -->
+                            </div>
+                          </div>
+                    
+                  
+                
+                      </div>
+                    </div>
+  
+                    <!-- <div
+                      class="col-xs-12 col-sm-9 col-md-9 col-lg-9"
+                      *ngIf="getData === undefind"
+                    >
+                      <div class="tab-content-profile">
+                        <div class="myListing">
+                          <div class="header">
+                            <span>My Listings</span>
+                          </div>
+                          <div class="myListingBody">
+                            <div class="nodata">
+                              <img src="./assets/img/blankimagepic.jpg" alt="" />
+                              <div class="nodatamsg">
+                                <span>Sorry..</span> You generated no sale
+                              </div>
+                              <button type="buton" class="yourProduct">
+                                Your Product
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SVG separator -->
+      <div class="separator separator-bottom separator-skew">
+        <svg
+          x="0"
+          y="0"
+          viewBox="0 0 2560 100"
+          preserveAspectRatio="none"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </section>
+  </main>
+  

@@ -1,0 +1,475 @@
+ngb-tabset ul li a {
+    padding: 0 !important;
+}
+
+.item {
+    position: relative;
+    color: #757575;
+    padding: 2px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    /* box-shadow: 1px 1px 1px 0.3px rgba(0, 0, 0, .24); */
+    background: #fff;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.item-img {
+    background-color: #d2d7da;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin: -2px -2px 0;
+    border-radius: 3px 3px 0 0;
+}
+
+.item-img img {
+    /* / border-radius: 5px 5px 0 0; / */
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    transition: 0.2s linear 0.1s;
+}
+
+.item-img img:hover {
+    transform: scale(1.2);
+}
+
+.item-det {
+    border-top: 1px solid rgba(0, 0, 0, .07000000000000001);
+    padding: 5px 10px;
+}
+
+.item-det .title {
+    margin: 0 0 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    margin-top: 7px;
+}
+
+.item-det .title h2 {
+    display: block;
+    vertical-align: middle;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #222222;
+    margin: 0;
+}
+
+.item-det .title h2 a {
+    color: #222222;
+    font-size: 14px;
+    text-transform: capitalize;
+    display: block;
+}
+
+.item-det .title h2 a.item-desc {
+    color: #8e8e8e;
+}
+
+.price-wrapper {
+    text-align: left;
+}
+
+.auction_icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 8px 0 0;
+}
+
+.auction_icon:before {
+    content: "\f0e3";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.price {
+    font-size: 15px;
+    font-weight: 900;
+    color: #222222;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.col-xl-2,
+.col-lg-2 {
+    height: fit-content !important;
+    padding: 8px;
+    border: 5px;
+}
+
+.main-div-card {
+    /* / margin: 16px 8px 0; / */
+    max-height: 462px;
+    padding: 8px;
+}
+
+.item-blog {
+    position: relative;
+}
+
+@media (max-width: 1600px) {
+    .main-div-card {
+        width: 16.66% !important;
+    }
+}
+
+.search-keywords {
+    width: 570px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    display: -webkit-box;
+    display: flex;
+}
+
+.search-keywords form {
+    position: relative;
+    width: 100%;
+}
+
+.search-keywords form .keyword {
+    width: 32.33%;
+    float: left;
+}
+
+.search-keywords form .search-radius {
+    float: right;
+    width: 44.8%;
+    display: -webkit-box;
+    position: relative;
+    left: -47px;
+}
+
+.keyword input {
+    width: 100%;
+    /* / border-radius:5px 0 0 5px; / */
+}
+
+.search-radius input,
+.search-radius .selectdistance {
+    min-width: 62% !important;
+}
+
+.search-radius .selectdistance select {
+    width: 86% !important;
+}
+
+.search-radius input {
+    padding-right: 10px !important;
+}
+
+.search-keywords input,
+.search-keywords select {
+    margin: 0;
+    color: #454545;
+    background: #fff;
+    height: 44px;
+    line-height: normal;
+    min-height: 44px;
+    padding-left: 20px;
+    padding-right: 16px;
+    border: 0 !important;
+    border: 1px solid rgba(0, 0, 0, .3) !important;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+input:focus,
+select:focus {
+    border: none;
+    outline: none;
+}
+
+.search-radius input::before {
+    content: "\f05b";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 20px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: middle;
+}
+
+.se_geoloc_icon {
+    float: left;
+    position: static;
+    top: auto;
+    color: #6e6e6e;
+    margin-left: -50px;
+    width: 50px;
+    height: 44px;
+    cursor: pointer;
+}
+
+.se_geoloc_icon:before {
+    content: "\f05b";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 20px;
+    position: relative;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: middle;
+    top: 8px;
+    left: 17px;
+}
+
+.search_btn {
+    position: absolute;
+    right: 0;
+    top: 1px;
+    border: 0px;
+    outline: none;
+}
+
+.searchbtn {
+    outline: none;
+    border: none;
+    background: #2fbdb4;
+    color: #ffffff;
+    position: relative;
+    cursor: pointer;
+    height: 44px;
+    width: 47px;
+    top: -1px;
+    /* border-radius: width: 100% !important; */
+    /* border: 1px solid rgba(0, 0, 0, .3) !important; */
+    border-radius: 0px 5px 5px 0px !important;
+}
+
+.more_dropdown {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.more_dropdown .advanced_search {
+    outline: none;
+    border: none;
+    color: #b2b2b2;
+    font-size: 14px;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.more_dropdown .advanced_search:hover {
+    color: #454545;
+    transition: 0.5s;
+}
+
+.fw {
+    width: 100%;
+}
+
+
+/* ::ng-deep .nav-tabs .nav-link {
+    padding: 0 !important;
+    } */
+
+.elseCss {
+    border: 1px solid;
+    position: relative;
+    right: 17%;
+    margin: 0%;
+    width: 150%;
+}
+
+.search-radius {
+    float: right;
+    width: 41.6%;
+    /* display: -webkit-box; */
+    /* display: flex; */
+    POSITION: relative;
+    right: 47px;
+}
+
+.filtersubmenu {
+    /* border: 1px solid #dddddd; */
+    border-radius: 0 3px 3px 0;
+    /* padding: 10px 10px;
+    background: #5e72e4; */
+}
+
+.filtersubmenu ul {
+    padding: 0;
+    list-style: none;
+}
+
+.filtersubmenu ul li {
+    border-bottom: 1px solid #dddddd;
+    padding: 5px 2px;
+    cursor: pointer;
+}
+
+.filtersubmenu ul li:last-child {
+    border: none;
+    margin-top: 25px;
+}
+
+.filtersubmenu ul li a {
+    color: #222222;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    padding-left: 4px !important;
+}
+
+.apply-filter {
+    outline: none;
+    margin: auto;
+    border: none;
+    font-size: 13px;
+    padding: 8px 15px;
+    cursor: pointer;
+    background: #2a2a2e;
+    color: #ffffff;
+    display: block;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.filterselect {
+    outline: none;
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    border: none;
+    padding: 0px;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+.emptyClass {
+    width: 100%;
+    text-align: center;
+    height: 500px;
+    /* background: #f1f1f1; */
+}
+
+.emptyClass b {
+    width: 100%;
+    display: block;
+    font-size: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: #8b8b8c;
+    letter-spacing: 2px;
+}
+
+.emptyClass button {
+    cursor: pointer;
+    border: none;
+    width: 120px;
+    height: 35px;
+    text-transform: capitalize;
+    font-weight: 600;
+    background: #2a2a2e;
+    color: #ffffff;
+    box-shadow: 1px 3px 2px 0px #b8b8b8;
+    border-radius: 4px;
+}
+
+.ng-autocomplete {
+    width: 47%;
+    display: inline-block;
+    margin: 0 auto;
+    float: left;
+}
+
+.ng-autocomplete.ngcompletedelete {
+    width: 100% !important;
+    border: 1px solid rgba(0, 0, 0, .3) !important;
+    border-radius: 3px 0 0 3px !important;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-search:before {
+    content: "\f002";
+}
+
+.card-footer {
+    padding: 10px;
+}
+
+.card-footer ul {
+    margin: 0;
+}
+
+.np-2 {
+    padding: 0 5px;
+}
+
+.nmb-2 {
+    margin-bottom: 15px;
+}
+
+.np-t-0 {
+    padding-top: 0px;
+}
+
+.banner-div {
+    margin-bottom: 15px;
+    height: 275px;
+}
+
+.banner-div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bannerStyle h1 {
+    background-color: #ccc;
+    min-height: 300px;
+    text-align: center;
+    line-height: 300px;
+}
+
+.leftRs {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
+    border-radius: 999px;
+    left: 0;
+}
+
+.rightRs {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
+    border-radius: 999px;
+    right: 0;
+}

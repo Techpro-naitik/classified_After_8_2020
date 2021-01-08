@@ -1,0 +1,101 @@
+<main>
+  <section class="section section-shaped section-lg" style="min-height: 619px">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="container pt-lg-md" style="padding: 0 !important">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div style="height: 220px">
+            <form
+              action=""
+              [formGroup]="OptForm"
+              (ngSubmit)="otpCall(myCountry.value)"
+              [hidden]="mlb"
+              style="
+                height: 220px;
+                background: white;
+                border-radius: 3px;
+                padding: 15px;
+              "
+            >
+              <h4
+                style="
+                  font-weight: 600;
+                  text-align: center;
+                  margin-bottom: 20px;
+                "
+              >
+                Verification Number
+              </h4>
+              <div style="float:left;width: 19%;">
+                  <select name="" id="" class="form-control" #myCountry   >
+                    <option value="">select</option>
+                 
+                    <option value="in">IN</option>
+                    <option value="us">Us</option>
+                  </select>
+                </div>
+              <div style="width: 80%;float:right;margin-bottom: 15px">
+                
+                <input
+                  type="number"
+                  placeholder="Mobile Number"
+                  formControlName="number"
+                  min="0"
+                  class="form-control"
+                />
+              </div>
+
+              <div style="text-align: center">
+                <button
+                  style="padding: 5px 15px"
+                  type="button"
+                  [disabled]="!OptForm.valid"
+                  type="submit"
+                  class="btn btn-primary"
+                >
+                Send SMS
+                </button>
+              </div>
+            </form>
+            <form
+              action=""
+              [formGroup]="OptVerification"
+              (ngSubmit)="otpVerifyCall()"
+              [hidden]="olB"
+              style="background: white; border-radius: 3px; padding: 15px"
+            >
+              <div style="width: 70%; margin: auto; margin-bottom: 15px">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Please Enter your Otp"
+                  formControlName="otp"
+                />
+              </div>
+              <div style="text-align: center; position: relative; right: 15px">
+                <button
+                  style="padding: 5px 15px"
+                  type="button"
+                  [disabled]="!OptVerification.valid"
+                  type="submit"
+                  class="btn btn-primary"
+                >
+                Continue
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

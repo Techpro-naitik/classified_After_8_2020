@@ -1,0 +1,328 @@
+.ni-3x {
+    font-size: 2em;
+}
+
+.Noticon {
+    position: relative;
+    left: 342px;
+    color: #dc1571;
+    /* right: 19px; */
+    top: 123px
+}
+
+agm-map {
+    height: 300px;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+
+.image-upload>input {
+    display: none;
+  }
+
+.color_Text {
+    font-size: 13px;
+    color: red;
+    display: block;
+    position: relative;
+    top: 0px;
+    float: left;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+    height: 160px;
+}
+
+/* // .main-container {
+//     background: #ffffff;
+// } */
+.card-body-profile {
+    background: #f6f5f7;
+}
+
+.leftmenu-profile {
+    background: #ffffff;
+    padding: 0;
+}
+
+.leftmenu-profile ul {
+    list-style: none;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.leftmenu-profile ul li {
+    /* // padding: 7px 0 0 0; */
+    color: #222222;
+    /* // padding: 0 10px 5px; */
+    cursor: pointer;
+    opacity: 0.9;
+    border-bottom: 1px solid #dddddd;
+    transition: 0.1s;
+}
+
+.leftmenu-profile ul li:last-child {
+    border-bottom: 0px;
+}
+
+.leftmenu-profile ul li a {
+    padding: 10px 15px;
+    display: block;
+    font-size: 14px;
+}
+
+.leftmenu-profile ul li:hover {
+    opacity: 1;
+}
+
+.profile-image{
+    width: fit-content;
+    /* // margin: 20px 0 15px 0; */
+    position: relative;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.profile-image img {
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    display: block;
+}
+
+.with-item-container img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.with-item-container{
+    border:1px solid #8e8e8e;
+    border-radius: 4px;
+    margin-top: 15px;
+
+}
+.with-item-container {
+    border: 1px solid #8e8e8e;
+    border-radius: 4px;
+}
+
+.profile-details {
+    margin-bottom: 20px;
+}
+
+.profile-details .name {
+    text-align: center;
+    font-size: 19px;
+    color: #000000;
+    /* // padding-bottom: 5px; */
+}
+
+.profile-details .rating {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.profile-details .rating span.fa-star {
+    font-size: 17px;
+    letter-spacing: 4px;
+    color: #cccccc;
+}
+
+.profile-details .rating span.avrg-rating {
+    font-size: 15px;
+}
+
+.mobile-verification {
+    background-image: url(src/assets/img/mobile-not-verified-icon.png);
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: inline-block;
+}
+
+.fb-verification {
+    background-image: url(src/assets/img/facebook-not-verified-icon.png);
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.mail-verification#verified {
+    background-image: url(src/assets/img/mail-verification-icon.png);
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.socialmediaverification {
+    text-align: center;
+    margin-top: 3px;
+}
+
+.tab-content-profile {
+    min-height: 100%;
+    background: #ffffff;
+    padding: 20px;
+}
+
+.editProfile .header span,
+.myListing .header span,
+.recentActivity .header span,
+.myExchange .header span,
+.address .header span,
+.notifications .header span,
+.ratingReview .header span,
+.bannerAdsHistory .header span {
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #222222;
+}
+
+.editProfile .header .changePassword {
+    background: #5e72e4;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    /* display: inline-block; */
+    margin-left: auto;
+    cursor: pointer;
+    float: right;
+}
+
+.importantstart {
+    color: #ff0000;
+    font-size: 10px;
+    position: relative;
+    top: -3px;
+}
+
+.editProfile .bodyProfile .form-control {
+    display: block;
+    width: 100%;
+    height: 35px !important;
+    padding: 0 10px !important;
+    font-size: 13px;
+    color: #222222;
+}
+
+.editProfile .bodyProfile .editProfileForm {
+    padding-left: 0px !important;
+    margin-top: 30px;
+}
+
+.editProfile .bodyProfile .editProfileForm .profile-text-label1,
+.editProfile .bodyProfile .editProfileForm .profile-text-label2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #222222;
+    padding: 0 !important;
+}
+
+.editProfile .bodyProfile .editProfileForm .profile-text-label2 {
+    font-size: 11px;
+    color: #888888;
+    margin-top: 15px;
+}
+
+.editProfile .bodyProfile .editProfileForm .facebookLogin {
+    margin-top: 15px;
+}
+
+.editProfile .bodyProfile .editProfileForm .facebookLogin span {
+    display: block;
+}
+
+.editProfile .bodyProfile .editProfileForm .facebookLogin span.header {
+    font-size: 19px;
+    color: #222222;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.editProfile .bodyProfile .editProfileForm .facebookLogin .verifyOption span a {
+    font-size: 14px;
+    color: grey;
+}
+
+.editProfile .bodyProfile .editProfileForm .submitButton {
+    border: none;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+    color: #ffffff;
+    background: #5e72e4;
+    cursor: pointer;
+}
+
+.editProfile .bodyProfile .editProfileForm .submitButton:focus {
+    border: none;
+    outline: none;
+}
+
+.nodata img {
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.nodata .nodatamsg {
+    text-align: center;
+    font-size: 16px;
+}
+
+.nodata .nodatamsg span {
+    font-size: 20px;
+    color: #5e72e4;
+}
+
+.yourProduct {
+    padding: 8px 20px;
+    margin: auto;
+    display: block;
+    color: #ffffff;
+    border: none;
+    font-size: 14px;
+    border-radius: 4px;
+    background: #5e72e4;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.yourProduct:focus {
+    border: none;
+    outline: none;
+}
+.phoneNumberVisible{
+    margin-top:20px;
+}
+.phoneNumberVisible span{
+    font-size:18px;
+    font-weight:600;
+    color:#222222;
+}
+/* // .leftmenu-profile ul li */

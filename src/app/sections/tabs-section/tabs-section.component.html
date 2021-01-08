@@ -1,0 +1,1043 @@
+<div class="container-fluid tabsections123" style="min-height: 630px;">
+    <ngx-ui-loader></ngx-ui-loader>
+
+    <div class="search-keywords">
+        <form class="formlocation">
+
+            <div class="ng-autocomplete">
+                <ng-autocomplete class="ngcompletedelete onlyforsearch" [data]="responseFrom_get_Keyword" style="border-radius:5px 0 0 5px !important; " placeHolder="Search" [searchKeyword]="keyword" (selected)="selectEvent($event)" (inputChanged)="onChangeSearch($event)"
+                    (inputFocused)="onFocused($event)" [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+                </ng-autocomplete>
+
+                <ng-template #itemTemplate let-item>
+                    <a [innerHTML]="item.Keyword"></a>
+                </ng-template>
+            </div>
+
+            <div class="search-radius">
+                <input style="border-left:0px !important;padding-left:30px;" type="text" class="form-control" [(ngModel)]="mylocation" [ngModelOptions]="{standalone: true}" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off"
+                    autocapitalize="off" spellcheck="off" type="text" #search />
+                <i class="fa fa-map-marker" style="color:#bebebe;position: absolute;font-size: 22px;top: 10px;left: 10px;"></i>
+                <datalist id="Ids" (change)="selectLocation(Ids)">
+                  <option *ngFor="let item of get_Location let index of i" (ngModelChange)="save_range($event)"> {{ item.LocationName }} </option>
+              </datalist>
+
+            </div>
+            <div class="search_btn" (click)="categorySelect(search.value)">
+                <button type="submit" class="searchbtn" (click)="categorySelect(search.value)">
+                  <i class="fa fa-search"></i>
+              </button>
+            </div>
+        </form>
+    </div>
+    <!-- *ngFor="let itemSub of pageOfItems" -->
+
+
+
+    <div class="row justify-content-center">
+        <div class="col-lg-12" *ngIf="getSubCategoryResponse == null " [hidden]="s1">
+            <ngb-tabset [justify]="'center'" class="custom-tab-content flex-column flex-md-row bannerfor" type="pills">
+
+                <ngb-tab style="margin: 5px;">
+
+                    <ng-template ngbTabTitle>
+                        <div (click)="bindValue(0)">All category</div>
+
+                        <!-- <input hidden type="text"> -->
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                        <div class="banner-div">
+                            <ngb-carousel style="height:100%;">
+                                <ng-template ngbSlide>
+                                    <img class="img-fluid" src="assets/img/theme/img-1-1200x1000.jpg" alt="First slide">
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                    <img class="img-fluid" src="assets/img/theme/img-2-1200x1000.jpg" alt="Second slide">
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                    <img class="img-fluid" src="assets/img/theme/img-1-1200x1000.jpg" alt="Third slide">
+                                </ng-template>
+                            </ngb-carousel>
+                        </div>
+                        <app-ng-dynamic-breadcrumb></app-ng-dynamic-breadcrumb>
+
+
+
+
+                        <div class="row" style="margin-top:20px;">
+                            <div class="col-xl-2 col-md-12">
+                                <div class="filtersubmenu">
+                                    <ul>
+                                        <li>
+                                            <a>{{ "Filter by price" | translate }}</a>
+                                            <div class="input-slider-container" style="padding-left: 4px;font-size: 13px; color: #000000; display: flex;">
+                                                {{range}} <input style="margin: 0 8px; width: 56%;" type="range" name="points" min="1000" max="20000" [(ngModel)]="range" step="1000" (ngModelChange)="save_range($event)" />10000
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a> {{ "Filter by Category" | translate }}</a>
+                                            <label for="cars" style="display: block; color: #ffffff; font-size: 14px;"></label>
+                                            <select class="filterselect" name="cars" id="cars" #mySelect (change)="onOptionsSelected(mySelect.value)">
+                                                  select Category
+                                                  <option [value]="item.CategoryId" *ngFor="let item of responseFrom_get_categoryApi">
+                                                      {{item.CategoryName}}
+                                                  </option>
+                                           
+                                              </select>
+                                        </li>
+                                        <li>
+                                            <a>{{ "Filter by Year" | translate }}</a>
+                                            <select class="filterselect" #myNewSelect (change)="YearDroupDown(myNewSelect.value)">
+                                                  select Category
+                                                  <option [value]="item1.YearId" *ngFor="let item1 of get_Year">
+                                                      {{item1.Year}}
+                                                  </option>
+                                              </select>
+                                        </li>
+
+                                        <li>
+                                            <a>SubCategoryName</a>
+                                            <select class="filterselect" #myNewSelect (change)="YearDroupDown(myNewSelect.value)">
+                                                  select Category
+                                                  <option [value]="item1.SubCategoryId" *ngFor="let item1 of subCategory">
+                                                      {{item1.SubCategoryName}}
+                                                  </option>
+                                              </select>
+                                        </li>
+                                        <li>
+                                            <a> {{ "Filter by Distance" | translate }}</a>
+                                            <select class="filterselect" #mylocation (change)="mylocationDroupDown(mylocation.value)">
+                                                  select Category
+                                          
+    
+                                                  <option>5KM</option>
+                                                  <option>10KM</option>
+                                                  <option>15KM</option>
+                                                  <option>20KM</option>
+                                              </select>
+                                        </li>
+                                        <li>
+                                            <a>{{ "Filter by Sort" | translate }}</a>
+                                            <select class="filterselect" #mySort (change)="mySortLocal(mySort.value)">
+                                                  select Category
+    
+                                                  <option value="2">
+                                                      urgent
+                                                  </option>
+                                                  <option value="3">
+                                                      popular
+                                                  </option>
+                                                  <option value="4">
+                                                      Low to High
+                                                  </option>
+                                                  <option value="5">
+                                                      High to Low
+                                                  </option>
+                                              
+                                              </select>
+                                        </li>
+                                        <li>
+                                            <a>{{ "Filter by Post With IN" | translate }}</a>
+                                            <select class="filterselect" #myPostDate (change)="myPostLocal(myPostDate.value)">
+                                                  select Category
+                                                  <option value="1">
+                                                      Last 24 hrs
+                                                  </option>
+                                                  <option value="2">
+                                                      Last 7 hrs
+                                                  </option>
+                                                  <option value="3">
+                                                      Last 30 hrs
+                                                  </option>
+    
+                                         
+                                              </select>
+                                        </li>
+                                        <li>
+                                            <button (click)="applyFilter()" class="apply-filter">{{"Apply Filter" | translate}}</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-md-12">
+                                <div class="card text-center" style="border:none;">
+                                    <div class="card-body" style="padding:0">
+                                        <div class="row" style="margin-bottom:100px;">
+                                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-2 np-2 nmb-2" *ngFor="let itemSub of product">
+                                                <div class="item">
+                                                    <div class="item-img">
+                                                        <a>
+                                                            <img src="https://templates.joomla-monster.com/joomla30/jm-myoffers/components/com_djclassifieds/images/item/114_2_thm.jpg" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="item-det">
+                                                        <div class="price-wrapper">
+                                                            <span class="auction_icon"></span>
+                                                            <div class="price"><span class="label_title"></span><span class="price_unit">$</span> 20</div>
+                                                        </div>
+                                                        <div class="title">
+                                                            <h2>
+                                                                <a class="item-name">{{ itemSub.productTitle }}</a>
+                                                                <a class="item-desc">{{ itemSub.productDescription }}</a>
+
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="emptyClass" *ngIf="subCategory.length == 0">
+                                                <div>
+                                                    <b>Selected Sub Category List is Empty !</b>
+                                                    <button (click)="reload()">Back</button>
+                                                </div>
+                                            </div>
+                                            <div class="search-results"
+                                            infinite-scroll
+                                            (scrolled)="onScrollDown()">
+                                        <p *ngFor="let i of array">
+                                          {{ i }}
+                                        </p>
+                                      </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+<!-- 
+                                <div class="col-xl-12 col-md-12">
+                                    Simllar Product
+                                    <div class="card text-center" style="border:none;">
+                                        <div class="card-body" style="padding:0">
+                                            <div class="row" style="margin-bottom:100px;">
+                                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-2 np-2 nmb-2" *ngFor="let itemSub of GetSimlar">
+                                                    <div class="item">
+                                                        <div class="item-img">
+                                                            <a>
+                                                                <img src="https://templates.joomla-monster.com/joomla30/jm-myoffers/components/com_djclassifieds/images/item/114_2_thm.jpg" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="item-det">
+                                                            <div class="price-wrapper">
+                                                                <span class="auction_icon"></span>
+                                                                <div class="price"><span class="label_title"></span><span class="price_unit">$</span> 20</div>
+                                                            </div>
+                                                            <div class="title">
+                                                                <h2>
+                                                                    <a class="item-name">{{ itemSub.ProductTitle }}</a>
+                                                                    <a class="item-desc">{{ itemSub.ProductDescription }}</a>
+        
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="emptyClass" *ngIf="subCategory.length == 0">
+                                                    <div>
+                                                        <b>Selected Sub Category List is Empty !</b>
+                                                        <button (click)="reload()">Back</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                </div>
+         -->
+
+
+
+
+
+
+                                <div class="card-footer tab-footer" style="position: absolute; width: 100%; bottom: 0px;">
+                                    <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+                                </div>
+
+                            </div>
+
+
+                            
+
+
+                        </div>
+
+
+
+
+
+                     
+
+
+
+
+        
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab *ngFor="let item of responseFrom_get_categoryApi" style="margin: 5px;">
+                    <ng-template ngbTabTitle>
+                        <div (click)="bindValue(item.CategoryId)">
+                            {{ item.CategoryName }}
+                        </div>
+
+                    </ng-template>
+
+                    <ng-template ngbTabContent>
+                        <div class="banner-div">
+                            <ngb-carousel style="height:100%;">
+                                <ng-template ngbSlide>
+                                    <img class="img-fluid" src="assets/img/theme/img-1-1200x1000.jpg" alt="First slide">
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                    <img class="img-fluid" src="assets/img/theme/img-2-1200x1000.jpg" alt="Second slide">
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                    <img class="img-fluid" src="assets/img/theme/img-1-1200x1000.jpg" alt="Third slide">
+                                </ng-template>
+                            </ngb-carousel>
+                        </div>
+
+
+                        
+
+                        <div class="row" style="margin-top:20px;">
+                            <div class="col-xl-2 col-md-12">
+                                <div class="filtersubmenu">
+                                    <ul>
+                                        <li>
+                                            <a>{{ "Filter by price" | translate }}</a>
+                                            <div class="input-slider-container" style="padding-left: 4px;font-size: 13px; color:#150404;; display: flex;">
+                                                {{range}} <input style="margin: 0 8px; width: 56%;" type="range" name="points" min="1000" max="20000" [(ngModel)]="range" step="1000" (ngModelChange)="save_range($event)" />10000
+                                            </div>
+                                        </li>
+                                        <!-- <li>
+                                            <a> {{ "Filter by Category" | translate }}</a>
+                                            <label for="cars" style="display: block; color: #ffffff; font-size: 14px;"></label>
+                                            <select class="filterselect" name="cars" id="cars" #mySelect (change)="onOptionsSelected(mySelect.value)">
+                                              select Category
+                                              <option [value]="item.CategoryId" *ngFor="let item of responseFrom_get_categoryApi">
+                                                  {{item.CategoryName}}
+                                              </option>
+                                       
+                                          </select>
+                                        </li> -->
+                                        <li>
+                                            <a>SubCategoryName</a>
+                                            <select class="filterselect" #mySb (change)="Subcategory(mySb.value)">
+                                              select Category
+                                              <option >
+                                                ---Select SubCategory -----
+                                            </option>
+                                              <option [value]="item1.SubCategoryId" *ngFor="let item1 of subCategory">
+                                                  {{item1.SubCategoryName}}
+                                              </option>
+                                             
+                                          </select>
+                                        </li>
+                                        <li>
+                                            <a>{{ "Filter by Year" | translate }}</a>
+                                            <select class="filterselect" #myNewSelect (change)="YearDroupDown(myNewSelect.value)">
+                                              select Category
+                                              <option [value]="item1.YearId" *ngFor="let item1 of get_Year">
+                                                  {{item1.Year}}
+                                              </option>
+                                          </select>
+                                        </li>
+
+                                        <li>
+                                            <a> {{ "Filter by Distance" | translate }}</a>
+                                            <select class="filterselect" #mylocation (change)="mylocationDroupDown(mylocation.value)">
+                                              select Category
+                                      
+
+                                              <option>5KM</option>
+                                              <option>10KM</option>
+                                              <option>15KM</option>
+                                              <option>20KM</option>
+                                          </select>
+                                        </li>
+                                        <li>
+                                            <a>{{ "Filter by Sort" | translate }}</a>
+                                            <select class="filterselect" #mySort (change)="mySortLocal(mySort.value)">
+                                              select Category
+
+                                              <option value="2">
+                                                  urgent
+                                              </option>
+                                              <option value="3">
+                                                  popular
+                                              </option>
+                                              <option value="4">
+                                                  Low to High
+                                              </option>
+                                              <option value="5">
+                                                  High to Low
+                                              </option>
+                                          
+                                          </select>
+                                        </li>
+                                        <li>
+                                            <a>{{ "Filter by Post With IN" | translate }}</a>
+                                            <select class="filterselect" #myPostDate (change)="myPostLocal(myPostDate.value)">
+                                              select Category
+                                              <option value="1">
+                                                  Last 24 hrs
+                                              </option>
+                                              <option value="2">
+                                                  Last 7 hrs
+                                              </option>
+                                              <option value="3">
+                                                  Last 30 hrs
+                                              </option>
+
+                                     
+                                          </select>
+                                        </li>
+                                        <li>
+                                            <button (click)="applyFilter()" class="apply-filter">{{"Apply Filter" | translate}}</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-md-12">
+                                <div class="card text-center" style="border:none;">
+                                    <div class="card-body" style="padding:0">
+                                        <div class="row" style="margin-bottom:100px;">
+                                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-2 np-2 nmb-2" *ngFor="let itemSub of subCategory">
+                                                <div class="item">
+                                                    <div class="item-img">
+                                                        <a>
+                                                            <img src="https://templates.joomla-monster.com/joomla30/jm-myoffers/components/com_djclassifieds/images/item/114_2_thm.jpg" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="item-det">
+                                                        <div class="price-wrapper">
+                                                            <span class="auction_icon"></span>
+                                                            <div class="price"><span class="label_title"></span><span class="price_unit">$</span> 20</div>
+                                                        </div>
+                                                        <div class="title">
+                                                            <h2>
+                                                                <a>{{ itemSub.productTitle }}</a><br />
+                                                                <a>{{ itemSub.productDescription }}</a>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="emptyClass" *ngIf="subCategory.length == 0">
+                                            <div>
+                                                <b>Selected Sub Category List is Empty !</b>
+                                                <button (click)="reload()">Back</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-xl-12 col-md-12">
+                                Simllar Product
+                                <div class="card text-center" style="border:none;">
+                                    <div class="card-body" style="padding:0">
+                                        <div class="row" style="margin-bottom:100px;">
+                                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-2 np-2 nmb-2" *ngFor="let itemSub of GetSimlar">
+                                                <div class="item">
+                                                    <div class="item-img">
+                                                        <a>
+                                                            <img src="https://templates.joomla-monster.com/joomla30/jm-myoffers/components/com_djclassifieds/images/item/114_2_thm.jpg" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="item-det">
+                                                        <div class="price-wrapper">
+                                                            <span class="auction_icon"></span>
+                                                            <div class="price"><span class="label_title"></span><span class="price_unit">$</span> 20</div>
+                                                        </div>
+                                                        <div class="title">
+                                                            <h2>
+                                                                <a class="item-name">{{ itemSub.ProductTitle }}</a>
+                                                                <a class="item-desc">{{ itemSub.ProductDescription }}</a>
+    
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                            </div> -->
+                            <!-- <div class="emptyClass" *ngIf="subCategory.length == 0">
+                                <div>
+                                    <b>Selected Sub Category List is Empty !</b>
+                                    <button (click)="reload()">Back</button>
+                                </div>
+                            </div> -->
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
+    </div>
+
+
+
+    <div class="row"  style="margin-top:20px;" [hidden]="s2">
+        <div class="col-xl-2 col-md-12">
+            <div class="filtersubmenu">
+                <ul>
+                    <li>
+                        <a>{{ "Filter by price" | translate }}</a>
+                        <div class="input-slider-container" style="padding-left: 4px;font-size: 13px; color:#150404; display: flex;">
+                            {{range}} <input style="margin: 0 8px; width: 56%;" type="range" name="points" min="1000" max="20000" [(ngModel)]="range" step="1000" (ngModelChange)="save_range($event)" />10000
+                        </div>
+                    </li>
+                    <!-- <li>
+                    <a> {{ "Filter by Category" | translate }}</a>
+                    <label for="cars" style="display: block; color: #ffffff; font-size: 14px;"></label>
+                    <select class="filterselect" name="cars" id="cars" #mySelect (change)="onOptionsSelected(mySelect.value)">
+                      select Category
+                      <option [value]="item.CategoryId" *ngFor="let item of responseFrom_get_categoryApi">
+                          {{item.CategoryName}}
+                      </option>
+               
+                  </select>
+                </li> -->
+                    <li>
+                        <a>SubCategoryName</a>
+                        <select class="filterselect"  #mSB (change)="Subcategory(mSB.value)">
+            
+                      <option value="{{item1.SubCategoryId}}"  *ngFor="let item1 of subCategory">
+                          {{item1.SubCategoryName}}
+                      </option>
+                     
+                  </select>
+                    </li>
+                    <li>
+                        <a>{{ "Filter by Year" | translate }}</a>
+                        <select class="filterselect" #myNewSelect (change)="YearDroupDown(myNewSelect.value)">
+                      select Category
+                      <option [value]="item1.YearId" *ngFor="let item1 of get_Year">
+                          {{item1.Year}}
+                      </option>
+                  </select>
+                    </li>
+
+                    <!-- <li>
+                    <a> {{ "Filter by Distance" | translate }}</a>
+                    <select class="filterselect" #mylocation (change)="mylocationDroupDown(mylocation.value)">
+                      select Category
+              
+
+                      <option>5KM</option>
+                      <option>10KM</option>
+                      <option>15KM</option>
+                      <option>20KM</option>
+                  </select>
+                </li> -->
+                    <li>
+                        <a>{{ "Filter by Sort" | translate }}</a>
+                        <select class="filterselect" #mySort (change)="mySortLocal(mySort.value)">
+                      select Category
+
+                      <option value="2">
+                          urgent
+                      </option>
+                      <option value="3">
+                          popular
+                      </option>
+                      <option value="4">
+                          Low to High
+                      </option>
+                      <option value="5">
+                          High to Low
+                      </option>
+                  
+                  </select>
+                    </li>
+                    <li>
+                        <a>{{ "Filter by Post With IN" | translate }}</a>
+                        <select class="filterselect" #myPostDate (change)="myPostLocal(myPostDate.value)">
+                      select Category
+                      <option value="1">
+                          Last 24 hrs
+                      </option>
+                      <option value="2">
+                          Last 7 hrs
+                      </option>
+                      <option value="3">
+                          Last 30 hrs
+                      </option>
+
+             
+                  </select>
+                    </li>
+                    <li>
+                        <button (click)="applyFilter()" class="apply-filter">{{"Apply Filter" | translate}}</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xl-10 col-md-12">
+            <div class="card text-center" style="border:none;">
+                <div class="card-body" style="padding:0">
+                    <div class="row" style="margin-bottom:100px;">
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-2 np-2 nmb-2" *ngFor="let itemSub of pageOfItems">
+                            <div class="item">
+                                <div class="item-img">
+                                    <a>
+                                        <img src="https://templates.joomla-monster.com/joomla30/jm-myoffers/components/com_djclassifieds/images/item/114_2_thm.jpg" />
+                                    </a>
+                                </div>
+                                <div class="item-det">
+                                    <div class="price-wrapper">
+                                        <span class="auction_icon"></span>
+                                        <div class="price"><span class="label_title"></span><span class="price_unit">$</span> 20</div>
+                                    </div>
+                                    <div class="title">
+                                        <h2>
+                                            <a>{{ itemSub.ProductTitle }}</a><br />
+                                            <a>{{ itemSub.ProductDescription }}</a>
+
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- <div class="col-xl-12 col-md-12">
+                            Simllar Product
+                            <div class="card text-center" style="border:none;">
+                                <div class="card-body" style="padding:0">
+                                    <div class="row" style="margin-bottom:100px;">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-2 np-2 nmb-2" *ngFor="let itemSub of GetSimlar">
+                                            <div class="item">
+                                                <div class="item-img">
+                                                    <a>
+                                                        <img src="https://templates.joomla-monster.com/joomla30/jm-myoffers/components/com_djclassifieds/images/item/114_2_thm.jpg" />
+                                                    </a>
+                                                </div>
+                                                <div class="item-det">
+                                                    <div class="price-wrapper">
+                                                        <span class="auction_icon"></span>
+                                                        <div class="price"><span class="label_title"></span><span class="price_unit">$</span> 20</div>
+                                                    </div>
+                                                    <div class="title">
+                                                        <h2>
+                                                            <a class="item-name">{{ itemSub.ProductTitle }}</a>
+                                                            <a class="item-desc">{{ itemSub.ProductDescription }}</a>
+
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="emptyClass" *ngIf="subCategory.length == 0">
+                                            <div>
+                                                <b>Selected Sub Category List is Empty !</b>
+                                                <button (click)="reload()">Back</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                        </div> -->
+
+                        <div class="card-footer tab-footer" style="position: absolute; width: 100%; bottom: 0px;">
+                            <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+                        </div>
+                    </div>
+                    <div class="emptyClass" *ngIf="responseApplyFilters.length == 0">
+                        <div>
+                            <b>Selected Sub Category List is Empty !</b>
+                            <button (click)="reload()">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="row"style="margin-top:20px;" [hidden]="s3">
+        <div class="col-xl-2 col-md-12">
+            <div class="filtersubmenu">
+                <ul>
+                    <li>
+                        <a>{{ "Filter by price" | translate }}</a>
+                        <div class="input-slider-container" style="padding-left: 4px;font-size: 13px; color:#150404;; display: flex;">
+                            {{range}} <input style="margin: 0 8px; width: 56%;" type="range" name="points" min="1000" max="20000" [(ngModel)]="range" step="1000" (ngModelChange)="save_range($event)" />10000
+                        </div>
+                    </li>
+                    <!-- <li>
+                    <a> {{ "Filter by Category" | translate }}</a>
+                    <label for="cars" style="display: block; color: #ffffff; font-size: 14px;"></label>
+                    <select class="filterselect" name="cars" id="cars" #mySelect (change)="onOptionsSelected(mySelect.value)">
+                      select Category
+                      <option [value]="item.CategoryId" *ngFor="let item of responseFrom_get_categoryApi">
+                          {{item.CategoryName}}
+                      </option>
+               
+                  </select>
+                </li> -->
+                    <li>
+                        <a>SubCategoryName</a>
+                        <select class="filterselect" (change)="Subcategory(value)">
+            
+                            <option [value]="item1.SubCategoryId" *ngFor="let item1 of subCategory">
+                                {{item1.SubCategoryName}}
+                            </option>
+                     
+                  </select>
+                    </li>
+                    <li>
+                        <a>{{ "Filter by Year" | translate }}</a>
+                        <select class="filterselect" #myNewSelect (change)="YearDroupDown(myNewSelect.value)">
+                      select Category
+                      <option [value]="item1.YearId" *ngFor="let item1 of get_Year">
+                          {{item1.Year}}
+                      </option>
+                  </select>
+                    </li>
+
+                    <!-- <li>
+                    <a> {{ "Filter by Distance" | translate }}</a>
+                    <select class="filterselect" #mylocation (change)="mylocationDroupDown(mylocation.value)">
+                      select Category
+              
+
+                      <option>5KM</option>
+                      <option>10KM</option>
+                      <option>15KM</option>
+                      <option>20KM</option>
+                  </select>
+                </li> -->
+                    <li>
+                        <a>{{ "Filter by Sort" | translate }}</a>
+                        <select class="filterselect" #mySort (change)="mySortLocal(mySort.value)">
+                      select Category
+
+                      <option value="2">
+                          urgent
+                      </option>
+                      <option value="3">
+                          popular
+                      </option>
+                      <option value="4">
+                          Low to High
+                      </option>
+                      <option value="5">
+                          High to Low
+                      </option>
+                  
+                  </select>
+                    </li>
+                    <li>
+                        <a>{{ "Filter by Post With IN" | translate }}</a>
+                        <select class="filterselect" #myPostDate (change)="myPostLocal(myPostDate.value)">
+                      select Category
+                      <option value="1">
+                          Last 24 hrs
+                      </option>
+                      <option value="2">
+                          Last 7 hrs
+                      </option>
+                      <option value="3">
+                          Last 30 hrs
+                      </option>
+
+             
+                  </select>
+                    </li>
+                    <li>
+                        <button (click)="applyFilter()" class="apply-filter">{{"Apply Filter" | translate}}</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xl-10 col-md-12">
+            <div class="card text-center" style="border:none;">
+                <div class="card-body" style="padding:0">
+                    <div class="row" style="margin-bottom:100px;">
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-2 np-2 nmb-2" *ngFor="let itemSub of searchKeyWord_Admin">
+                            <div class="item">
+                                <div class="item-img">
+                                    <a>
+                                        <img src="https://templates.joomla-monster.com/joomla30/jm-myoffers/components/com_djclassifieds/images/item/114_2_thm.jpg" />
+                                    </a>
+                                </div>
+                                <div class="item-det">
+                                    <div class="price-wrapper">
+                                        <span class="auction_icon"></span>
+                                        <div class="price"><span class="label_title"></span><span class="price_unit">$</span> 20</div>
+                                    </div>
+                                    <div class="title">
+                                        <h2>
+                                            <a>{{ itemSub.ProductTitle }}</a><br /> {{ itemSub.ProductDescription }}
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- <div class="card-footer tab-footer" style="position: absolute; width: 100%; bottom: 0px;">
+                        <jw-pagination [items]="items" (cPage)="onChangePage($event)"></jw-pagination>
+                    </div> -->
+                    </div>
+                    <div class="emptyClass" *ngIf="searchKeyWord_Admin.length === 0">
+                        <div>
+                            <b>Selected Sub Category List is Empty !</b>
+                            <button (click)="reload()">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       <!-- <div class="col-xl-12 col-md-12">
+            Simllar Product
+            <div class="card text-center" style="border:none;">
+                <div class="card-body" style="padding:0">
+                    <div class="row" style="margin-bottom:100px;">
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-2 np-2 nmb-2" *ngFor="let itemSub of GetSimlar">
+                            <div class="item">
+                                <div class="item-img">
+                                    <a>
+                                        <img src="https://templates.joomla-monster.com/joomla30/jm-myoffers/components/com_djclassifieds/images/item/114_2_thm.jpg" />
+                                    </a>
+                                </div>
+                                <div class="item-det">
+                                    <div class="price-wrapper">
+                                        <span class="auction_icon"></span>
+                                        <div class="price"><span class="label_title"></span><span class="price_unit">$</span> 20</div>
+                                    </div>
+                                    <div class="title">
+                                        <h2>
+                                            <a class="item-name">{{ itemSub.ProductTitle }}</a>
+                                            <a class="item-desc">{{ itemSub.ProductDescription }}</a>
+
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>  -->
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row" style="margin-top:20px;" [hidden]="s4">
+        <div class="col-xl-2 col-md-12">
+            <div class="filtersubmenu">
+                <ul>
+                    <li>
+                        <a>{{ "Filter by price" | translate }}</a>
+                        <div class="input-slider-container" style="padding-left: 4px;font-size: 13px; color: #150404; display: flex;">
+                            {{range}} <input style="margin: 0 8px; width: 56%;" type="range" name="points" min="1000" max="20000" [(ngModel)]="range" step="1000" (ngModelChange)="save_range($event)" />10000
+                        </div>
+                    </li>
+                    <!-- <li>
+                    <a> {{ "Filter by Category" | translate }}</a>
+                    <label for="cars" style="display: block; color: #ffffff; font-size: 14px;"></label>
+                    <select class="filterselect" name="cars" id="cars" #mySelect (change)="onOptionsSelected(mySelect.value)">
+                      select Category
+                      <option [value]="item.CategoryId" *ngFor="let item of responseFrom_get_categoryApi">
+                          {{item.CategoryName}}
+                      </option>
+               
+                  </select>
+                </li> -->
+                    <li>
+                        <a>SubCategoryName</a>
+                        <select class="filterselect" #mysubCategory (change)="Subcategory(mysubCategory.value)">
+            
+                      <option [value]="item1.SubCategoryId" *ngFor="let item1 of subCategory">
+                          {{item1.SubCategoryName}}
+                      </option>
+                     
+                  </select>
+                    </li>
+                    <li>
+                        <a>{{ "Filter by Year" | translate }}</a>
+                        <select class="filterselect" #myNewSelect (change)="YearDroupDown(myNewSelect.value)">
+                      select Category
+                      <option [value]="item1.YearId" *ngFor="let item1 of get_Year">
+                          {{item1.Year}}
+                      </option>
+                  </select>
+                    </li>
+
+                    <!-- <li>
+                    <a> {{ "Filter by Distance" | translate }}</a>
+                    <select class="filterselect" #mylocation (change)="mylocationDroupDown(mylocation.value)">
+                      select Category
+              
+
+                      <option>5KM</option>
+                      <option>10KM</option>
+                      <option>15KM</option>
+                      <option>20KM</option>
+                  </select>
+                </li> -->
+                    <li>
+                        <a>{{ "Filter by Sort" | translate }}</a>
+                        <select class="filterselect" #mySort (change)="mySortLocal(mySort.value)">
+                      select Category
+
+                      <option value="2">
+                          urgent
+                      </option>
+                      <option value="3">
+                          popular
+                      </option>
+                      <option value="4">
+                          Low to High
+                      </option>
+                      <option value="5">
+                          High to Low
+                      </option>
+                  
+                  </select>
+                    </li>
+                    <li>
+                        <a>{{ "Filter by Post With IN" | translate }}</a>
+                        <select class="filterselect" #myPostDate (change)="myPostLocal(myPostDate.value)">
+                      select Category
+                      <option value="1">
+                          Last 24 hrs
+                      </option>
+                      <option value="2">
+                          Last 7 hrs
+                      </option>
+                      <option value="3">
+                          Last 30 hrs
+                      </option>
+
+             
+                  </select>
+                    </li>
+                    <li>
+                        <button (click)="applyFilter()" class="apply-filter">{{"Apply Filter" | translate}}</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xl-10 col-md-12">
+            <div class="card text-center" style="border:none;">
+                <div class="card-body" style="padding:0">
+                    <div class="row" style="margin-bottom:100px;">
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-2 np-2 nmb-2" *ngFor="let itemSub of getSerchSubCategoryResponse">
+                            <div class="item" (click)="navigation(itemSub.SubCategoryId)">
+                                <div class="item-img">
+                                    <a>
+                                        <img src="https://templates.joomla-monster.com/joomla30/jm-myoffers/components/com_djclassifieds/images/item/114_2_thm.jpg" />
+                                    </a>
+                                </div>
+                                <div class="item-det">
+                                    <div class="price-wrapper">
+                                        <span class="auction_icon"></span>
+                                        <div class="price"><span class="label_title"></span><span class="price_unit">$</span> 20</div>
+                                    </div>
+                                    <div class="title">
+                                        <h2>
+                                            <a>{{ itemSub.SubCategoryName }}</a>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- <div class="card-footer tab-footer" style="position: absolute; width: 100%; bottom: 0px;">
+                        <jw-pagination [items]="items" (cPage)="onChangePage($event)"></jw-pagination>
+                    </div> -->
+                    </div>
+                    <div class="emptyClass" *ngIf="getSerchSubCategoryResponse == undefind">
+                        <div>
+                            <b>Selected Sub Category List is Empty !</b>
+                            <button (click)="reload()">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

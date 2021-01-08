@@ -1,0 +1,175 @@
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
+    <div class="container-fluid">
+        <a class="navbar-brand mr-lg-5" href="#">
+            <img src="./assets/img/brand/logo_head.png">
+        </a>
+        <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
+            <div class="navbar-collapse-header">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <a [routerLink]="['/home']">
+                            <img src="./assets/img/brand/blue.png">
+                        </a>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+              <span></span>
+              <span></span>
+            </button>
+                    </div>
+                </div>
+            </div>
+            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+
+
+
+                <!-- <li class="nav-item dropdown" *ngIf="loginLocalData == null && fbLogin != null">
+                    <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+                        <i class="ni ni-collection d-lg-none"></i>
+
+                        <span class="nav-link-inner--text" [routerLink]="['/user-profile']">{{"My Account" | translate}}</span>
+                    </a>
+
+
+                </li> -->
+                <li (click)="notification()">
+                    <!-- <i class="fa fa-bell" aria-hidden="true" ></i> -->
+                    <!-- <img src="./../../assets/img/brand/ic_chat_48px.svg" alt="" srcset=""> -->
+                </li>
+                <li (click)="notification()">
+                    <i class="fa fa-bell" aria-hidden="true" style="font-size:25px;color:#ffffff;"></i>
+
+                </li>
+
+
+
+                <li class="nav-item" ngbDropdown placement="bottom-right" *ngIf="loginLocalData != null ">
+                    <a class="nav-link nav-link-icon no-caret" id="navbar-default_dropdown_1" ngbDropdownToggle>
+                        <img src="https://classifiedwebapi.azurewebsites.net/{{
+                        image
+                      }}" alt="" style="width: 30px;border-radius: 50%;height: 30px;object-fit: cover;" *ngIf="image !== null">
+
+
+                        <ngx-avatar [style]="customStyle" size="30" [name]="firstLatter" *ngIf="image === null"></ngx-avatar>
+
+                    </a>
+                    <div class="dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1" ngbDropdownMenu>
+                        <a class="dropdown-item" >Profile</a>
+                        <a class="dropdown-item">My Promotions</a>
+                        <a class="dropdown-item">My Exchanges</a>
+                        <a class="dropdown-item" >My orders & My sales</a>
+                        <a class="dropdown-item" (click)="signOut()">Log out</a>
+                    </div>
+                </li>
+
+
+                <li class="nav-item" ngbDropdown placement="bottom-right" *ngIf="fbLogin != null ">
+                    <a class="nav-link nav-link-icon no-caret" id="navbar-default_dropdown_1" ngbDropdownToggle>
+                        <img src="{{image}}" alt="" style="width: 30px;border-radius: 50%;height: 30px;object-fit: cover;" *ngIf="image !== null">
+
+
+                        <ngx-avatar [style]="customStyle" size="30" [name]="firstLatter" *ngIf="image === null"></ngx-avatar>
+
+                    </a>
+                    <div class="dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1" ngbDropdownMenu>
+                        <a class="dropdown-item" >Profile</a>
+                        <a class="dropdown-item">My Promotions</a>
+                        <a class="dropdown-item">My Exchanges</a>
+                        <a class="dropdown-item" >My orders & My sales</a>
+                        <a class="dropdown-item" (click)="signOut()">Log out</a>
+                    </div>
+                </li>
+
+
+                <li class="nav-item" ngbDropdown placement="bottom-right" *ngIf="GmailLogin != null ">
+                    <a class="nav-link nav-link-icon no-caret" id="navbar-default_dropdown_1" ngbDropdownToggle>
+                        <!-- <img src="{{image}}" alt="" style="width: 30px;border-radius: 50%;height: 30px;object-fit: cover;" *ngIf="image !== null"> -->
+
+
+                        <ngx-avatar [style]="customStyle" size="30" [name]="firstLatter" *ngIf="image !== null"></ngx-avatar>
+
+                    </a>
+                    <div class="dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1" ngbDropdownMenu>
+                        <a class="dropdown-item" >Profile</a>
+                        <a class="dropdown-item">My Promotions</a>
+                        <a class="dropdown-item">My Exchanges</a>
+                        <a class="dropdown-item" >My orders & My sales</a>
+                        <a class="dropdown-item" (click)="signOut()">Log out</a>
+                    </div>
+                </li>
+
+
+
+                <li>
+                    <!-- <a >Language & Country</a> -->
+                    <select class="filterselect languageseclect" #mySelect  (change)="selectChangeHandler($event)"> select Category
+                        <option id="en" value="en">English</option>
+                        <option id="en" value="ar" >{{"Arabic" | translate }}</option>
+        
+            </select>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link no-caret" data-toggle="dropdown" role="button" *ngIf="loginLocalData == null && fbLogin == null &&  GmailLogin == null">
+                        <i class="ni ni-collection d-lg-none"></i>
+                        <span class="nav-link-inner--text" [routerLink]="['/login']">  {{ "Login" | translate }}</span>
+                    </a>
+                    <a class="nav-link no-caret" data-toggle="dropdown" role="button" *ngIf="GmailLogin == null && loginLocalData != null && fbLogin == null">
+                        <i class="ni ni-collection d-lg-none"></i>
+                        <span class="nav-link-inner--text">{{ loginLocalData.FullName }}</span>
+                    </a>
+
+
+                    <a class="nav-link no-caret" data-toggle="dropdown" role="button" *ngIf="GmailLogin != null && fbLogin == null && loginLocalData == null">
+                        <i class="ni ni-collection d-lg-none"></i>
+                        <span class="nav-link-inner--text">{{ GmailLogin.fullName }}</span>
+                    </a>
+
+                    <a class="nav-link no-caret" data-toggle="dropdown" role="button" *ngIf="loginLocalData == null && fbLogin != null && GmailLogin == null">
+                        <i class="ni ni-collection d-lg-none"></i>
+                        <span class="nav-link-inner--text">{{ fbLogin.fullName }}</span>
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link no-caret" data-toggle="dropdown" role="button" *ngIf="loginLocalData == null && fbLogin == null && GmailLogin == null">
+                        <i class="ni ni-collection d-lg-none"></i>
+                        <!-- <app-home (newItemEvent)="addItem($event)"></app-home> -->
+
+                        <span class="nav-link-inner--text" [routerLink]="['/register']">  {{ "Sign up" | translate }}</span>
+                    </a>
+                    <a class="nav-link no-caret" data-toggle="dropdown" role="button" *ngIf="loginLocalData == null && fbLogin != null">
+                        <i class="ni ni-collection d-lg-none"></i>
+                        <!-- <app-home (newItemEvent)="addItem($event)"></app-home> -->
+
+                        <span class="nav-link-inner--text" (click)="signOut()" [routerLink]="['/home']">{{"LogOut" | translate }}</span>
+                    </a>
+                    <a class="nav-link no-caret" data-toggle="dropdown" role="button" *ngIf="loginLocalData != null && fbLogin == null">
+                        <i class="ni ni-collection d-lg-none"></i>  
+                        <!-- <app-home (newItemEvent)="addItem($event)"></app-home> -->
+
+                        <span class="nav-link-inner--text" (click)="signOut()">{{"Log Out" | translate }}</span>
+                    </a>
+
+                    <a class="nav-link no-caret" data-toggle="dropdown" role="button" *ngIf="GmailLogin != null && fbLogin == null">
+                        <i class="ni ni-collection d-lg-none"></i>
+                        <!-- <app-home (newItemEvent)="addItem($event)"></app-home> -->
+
+                        <span class="nav-link-inner--text" (click)="signOut()">{{"Log Out" | translate }}</span>
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="sellButton">
+                        <i class="fa fa-camera"></i> Sell
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
